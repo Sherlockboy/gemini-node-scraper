@@ -1,13 +1,12 @@
 {
-  "name": "gemini-node",
+  "name": "gemini-node-scraper",
   "version": "1.0.0",
-  "description": "",
+  "description": "Exchange rates scraper with Gemini AI",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
+  "author": "Khurshidbek Kobilov",
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.2.1",
