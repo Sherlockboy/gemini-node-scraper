@@ -6,9 +6,9 @@ Example Node.js application to demonstrate parsing exchange rates data with AI
 1. Get your `API-KEY` in [Google AI Studio](https://aistudio.google.com/app/apikey)
 2. Execute following commands:
 ```bash
-git clone xxx
+git clone git@github.com:Sherlockboy/gemini-node-scraper.git
 
-cd xxx
+cd gemini-node-scraper
 
 npm install
 
