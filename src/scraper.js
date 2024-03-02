@@ -1,9 +1,16 @@
 const axios = require("axios").default;
 const cheerio = require("cheerio");
-const puppeteer = require("puppeteer");
+const helpers = require("./helpers");
 
 async function scrapeSpaContent(url, element) {
-  const browser = await puppeteer.launch();
+  let browser;
+
+  if (helpers.isEnvProd()) {
+    browser = await require("chrome-aws-lambda").puppeteer.launch();
+  } else {
+    browser = await require("puppeteer").launch();
+  }
+
   const page = await browser.newPage();
 
   await page.goto(url, { waitUntil: "networkidle2" });
