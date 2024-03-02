@@ -1,5 +1,6 @@
 require("dotenv").config();
-
+const express = require("express");
+const app = express();
 const scraper = require("./src/scraper");
 const ai = require("./src/ai");
 
@@ -10,11 +11,20 @@ async function run() {
     true
   );
 
-  const prompt = `Parse exchange rates from the html below and return response as valid JSON: "${html}"`;
-  console.log(prompt);
+  const prompt = `Parse exchange rates from the html below and return result as JSON objects: "${html}"`;
 
-  const response = await ai.generateContent(prompt);
-  console.log(response);
+  return await ai.generateContent(prompt);
 }
 
-run();
+app.get("/", async (req, res) => {
+  const rawData = await run();
+  console.log("RAW_DATA: " + rawData)
+  const jsonData = rawData.replace(/```json|```$/gi, '');
+  console.log("JSON_DATA: " + jsonData)
+
+  res.json({data: JSON.parse(jsonData)});
+});
+
+app.listen(process.env.APP_PORT, () => {
+  console.log(`app listening on port ${process.env.APP_PORT}`);
+});

@@ -4,7 +4,7 @@
   "description": "Exchange rates scraper with Gemini AI",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "dev": "node index.js"
   },
   "author": "Khurshidbek Kobilov",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "axios": "^1.6.7",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.4.5",
+    "express": "^4.18.3",
     "puppeteer": "^22.3.0"
   }
 }
